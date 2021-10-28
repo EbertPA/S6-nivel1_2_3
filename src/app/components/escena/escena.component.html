@@ -1,0 +1,18 @@
+<div class="welcome" *ngIf="!iniciaFrases">
+    <h2>Proyecto</h2>
+    <div class="descripcion">Un cliente que tiene como producto principal una web de gestión empesarial desarrollada con Angular, nos ha pedido que desarrollamos un tutorial, en la que mediante dos botones los nuevos usuarios puedan avanzar y retroceder en los consejos, modificándose el texto de ayuda y la imagen de fondo.</div>
+    <button class="boton_inicio" (click)="mostrarEscena()">Iniciar</button>
+</div>
+
+<div *ngIf="iniciaFrases">
+    <img [src]="getImagen()" class="imagebackground">
+    <div class="container">
+        <button (click)="anterior()">Anterior</button>
+        <button (click)="siguiente()">Siguiente</button>
+    </div>
+    <div *ngFor="let frase of frases; let i=index" class="listafrases">
+        <p [ngClass]="getClassName(i)">{{ frase.txt }}</p>
+    </div>
+    <button class="boton_inicio" (click)="mostrarEscena()">Volver</button>
+
+</div>
